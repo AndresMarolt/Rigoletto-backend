@@ -24,8 +24,6 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, '/uploads')));
 
 app.use('/', router)
-app.use('/admin', adminRoutes);
-app.use('/user', userRoutes);
 
 mongoose.connect(process.env.CONNECTION_URL, {useNewUrlParser: true, useUnifiedTopology: true})
     .then(() => app.listen(PORT, () => console.log(`Server running on port ${PORT}`)))

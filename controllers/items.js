@@ -6,8 +6,6 @@ export const createItem = async (req, res) => {
     const {title, price, description, category} = req.body;
     const {filename} = req.file;
 
-    console.log(filename);
-
     const newItem = new Item({title, price, description, category, img: filename})
 
     try {
@@ -54,8 +52,6 @@ export const deleteImg = (req, res) => {
 export const fetchItemsByCategory = async (req, res) => {
 
     const {category} = await req.params;
-    console.log("SERVER");
-    console.log(category);
     try {
         const items = await Item.find({category});
         res.json({ data: items });    
